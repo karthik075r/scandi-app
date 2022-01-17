@@ -1,0 +1,102 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+.CategorySort {
+    @include desktop {
+        margin-inline-start: auto;
+        min-width: 180px;
+        grid-column: 2;
+    }
+
+    &-Select {
+        margin-block-start: 0;
+
+        @include desktop {
+            width: 210px;
+            height: 46px;
+        }
+
+        label:first-of-type {
+            font-size: 16px;
+            font-weight: 400;
+
+            @include desktop {
+                display: none;
+            }
+
+            @include mobile {
+                padding-block-end: 0;
+            }
+        }
+    }
+
+    &-Placeholder {
+        text-align: end;
+        opacity: 0;
+        animation: appear 100ms 300ms forwards;
+
+        @include mobile {
+            text-align: start;
+        }
+    }
+
+    .FieldSelect {
+        &::after {
+            height: 16px;
+            width: 16px;
+
+            @include mobile {
+                inset-inline-start: 42px;
+                inset-block-start: -20px;
+            }
+        }
+
+        &-Select {
+            background: none;
+            border: none;
+            color: var(--color-black);
+            padding-block: 13px;
+            padding-inline: 20px 40px;
+
+            @include mobile {
+                position: absolute;
+                inset-block-start: -35px;
+                opacity: 0;
+            }
+
+            &_isExpanded {
+                border: 1px solid var(--input-border-color);
+                border-block-end: 0;
+                font-weight: 700;
+            }
+
+            .FieldSelect {
+                height: 100%;
+            }
+        }
+
+        .ChevronIcon {
+            @include mobile {
+                display: none;
+            }
+        }
+    }
+
+    .Field-LabelContainer {
+        .ChevronIcon {
+            @include desktop {
+                display: none;
+            }
+
+            margin-block-start: 3px;
+        }
+    }
+}

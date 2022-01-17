@@ -1,0 +1,288 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+@keyframes shake {
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+.ProductActions {
+    line-height: 16px;
+
+    &-Brand {
+        font-weight: bold;
+        opacity: .48;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    &-Title {
+        margin-block: 8px;
+
+        @include mobile {
+            font-weight: 400;
+            font-size: 14px;
+        }
+    }
+
+    &-ShortDescription {
+        font-size: 14px;
+        line-height: 20px;
+        margin-block: 16px;
+
+        div[itemprop="description"] li:before{
+            position: static;
+        }
+    }
+
+    &-Stock {
+        font-weight: bold;
+        order: 0;
+
+        @include desktop {
+            margin-inline-end: 24px;
+        }
+
+        @include mobile {
+            margin-block-end: 10px;
+            font-style: normal;
+            font-size: 12px;
+        }
+    }
+
+    &-Sku {
+        order: 1;
+
+        @include mobile {
+            font-weight: normal;
+            font-size: 12px;
+        }
+
+        & + .ProductActions-Sku {
+            margin-inline-start: 1ex;
+        }
+    }
+
+    &-Review {
+        order: 2;
+        font-weight: 700;
+        color: var(--primary-base-color);
+        cursor: pointer;
+        inset-block-end: -2px;
+        font-size: 14px;
+
+        &:hover {
+            color: var(--primary-dark-color);
+        }
+    }
+
+    &-Section {
+        &_type {
+            &_sku {
+                display: flex;
+
+                @include mobile {
+                    flex: 1;
+                    align-items: flex-end;
+                    flex-direction: column;
+                }
+            }
+
+            &_alerts {
+                margin-block-start: 10px;
+                margin-block-end: 10px;
+            }
+        }
+    }
+
+    &-Schema {
+        min-width: 150px;
+    }
+
+    &-SchemaUrl {
+        display: none;
+    }
+
+    &-PriceWrapper {
+        @include desktop {
+            margin-block-start: 24px;
+        }
+    }
+
+    &-ActionButtons {
+        display: flex;
+    }
+
+    &-ActionsWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-block-end: 12px;
+
+        @include desktop {
+            margin-block: 18px;
+        }
+
+        .ProductCompareButton {
+            margin-inline-start: auto;
+        }
+
+        &_isWithoutPriceTotal .ProductActions-Section_type_sku {
+            @include mobile {
+                float: end;
+            }
+        }
+    }
+
+    &-AddToCartFixed {
+        position: fixed;
+        inset-block-end: var(--footer-total-height);
+        z-index: 5;
+        background-color: var(--color-white);
+        width: 100%;
+        display: flex;
+        padding: 12px 16px;
+        border-block-start: 1px solid var(--primary-divider-color);
+        inset-inline-start: 0;
+
+        .ProductWishlistButton {
+            margin-inline: 18px 4px;
+            margin-block: auto;
+        }
+
+        .Field {
+            &-Wrapper {
+                &_type {
+                    &_number {
+                        @include mobile {
+                            display: flex;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-AddToCartWrapper {
+        align-items: center;
+        display: flex;
+        margin-block-start: 24px;
+
+        .ProductActions-AddToCart {
+            margin-inline-end: 16px;
+
+            @include ultra-narrow-desktop {
+                order: 10;
+                margin-block-start: 24px;
+            }
+        }
+
+        .ProductCompareButton,
+        .ProductWishlistButton {
+            margin-inline: 16px;
+        }
+
+        @include ultra-narrow-desktop {
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        &_isPrerendered {
+            @include mobile {
+                inset-block-end: 0;
+            }
+        }
+        .Field-ErrorMessages {
+            position: absolute;
+        }
+    }
+
+    &-Qty {
+        &.Field {
+            margin-block: 0;
+
+            @include desktop {
+                margin-inline-end: 32px;
+            }
+
+            @include mobile {
+                margin-inline-end: 12px;
+
+                input {
+                    min-width: 36px;
+                };
+            }
+        }
+
+        button {
+            &:not([disabled]) {
+                cursor: pointer;
+            }
+
+            &:disabled {
+                cursor: default;
+            }
+
+            &:hover {
+                border-color: var(--primary-dark-color);
+            }
+        }
+    }
+
+    &-AttributesWrapper {
+        @include mobile {
+            margin-block-end: 16px;
+        }
+
+        &.animate {
+            animation: shake 820ms .5ms cubic-bezier(.36, .07, .19, .97) both;
+        }
+    }
+
+    &-GroupedItems {
+        margin-block-start: 24px;
+    }
+
+    &-Reviews {
+        margin-block-end: 10px;
+        display: flex;
+
+        .ProductReviewRating {
+            margin-inline-end: 24px;
+        }
+    }
+
+    .ProductConfigurableAttributes-Expandable {
+        margin-block-start: 24px;
+    }
+
+    .ExpandableContent:first-of-type {
+        border-block-start: 0;
+    }
+}

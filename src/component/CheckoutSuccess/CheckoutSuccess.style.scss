@@ -1,0 +1,37 @@
+.CheckoutSuccess {
+    @include mobile {
+        margin-block-start: 28px;
+    }
+
+    &-ContinueButton {
+        @include mobile {
+            width: 100%;
+        }
+
+        @include desktop {
+            margin-block-start: 24px;
+        }
+    }
+
+    &-ButtonWrapper {
+        @include mobile {
+            padding: 14px;
+            position: fixed;
+            inset-inline-start: 0;
+            width: 100%;
+            inset-block-end: var(--navigation-tabs-height);
+            border-block-start: 1px solid var(--primary-divider-color);
+        }
+    }
+
+    .Button {
+        @include mobile {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .CheckoutRegistrationLink {
+        margin-block-start: 20px;
+    }
+}

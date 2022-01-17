@@ -1,0 +1,97 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+.MyAccountDashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 24px;
+
+    @include mobile {
+        grid-gap: 28px;
+    }
+
+    @include desktop {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 48px;
+    }
+
+    &-AddressesWrapper {
+        @include desktop {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &-Addresses {
+        @include desktop {
+            grid-column: span 2;
+        }
+    }
+
+    &-CustomerData {
+        @include desktop {
+            grid-column: span 2;
+        }
+
+        td {
+            word-break: break-word;
+        }
+    }
+
+    &-DefaultAddress {
+        width: 100%;
+
+        &:nth-child(2) {
+            @include mobile {
+                margin-block-start: 48px;
+            }
+
+            @include desktop {
+                margin-inline-start: 48px;
+            }
+        }
+    }
+
+    &-BlockTitle {
+        border-bottom: var(--my-account-content-border);
+        display: flex;
+        justify-content: space-between;
+        font-size: 18px;
+        padding-bottom: 6px;
+        width: 100%;
+        margin-block-end: 25px;
+
+        a {
+            margin-inline-start: 15px;
+            margin-block-start: 4px;
+        }
+
+        @include desktop {
+            justify-content: unset;
+        }
+    }
+
+    &-Info {
+        margin-block-end: 5px;
+    }
+
+    button + button {
+        margin-block-start: 12px;
+
+        @include mobile {
+            margin-block-start: 14px;
+        }
+
+        @include desktop {
+            margin-inline-start: 12px;
+        }
+    }
+}
